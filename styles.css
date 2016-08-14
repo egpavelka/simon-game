@@ -1,7 +1,9 @@
-body {
+*, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+body {
   font-family: 'Unica One';
   text-align: center;
   border: none;
@@ -13,13 +15,11 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-#gameboard {
+.gameboard {
   width: 500px;
   margin: 100px auto;
 }
-
-#circle {
+.circle {
   z-index: -1000;
   position: absolute;
   margin: 0;
@@ -42,6 +42,7 @@ body {
 
 .button:hover {
   opacity: .7;
+  cursor: pointer;
 }
 
 #d1 {
@@ -64,7 +65,7 @@ body {
   background: blue;
 }
 
-#controls {
+.controls {
   position: absolute;
   margin: 95px;
   z-index: 1000;

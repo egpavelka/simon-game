@@ -3,7 +3,6 @@
     /////// INITIALIZE
     var
       // game is off on page load
-      //// FIXME why can't this be in the initializerloadGame()?
       start = false,
       // sound for screw ups
       errorSound = new Audio('err.mp3'),
@@ -41,9 +40,10 @@
     /////// OPTIONS AND EVENTS
     // animation and audio for button press
     function play(bu) { //
-      setTimeout(function background() {
-        bu.div.style.opacity = "0.4";
-      }, 1000); // FIXME why is this not changing back?
+      bu.div.style.opacity = "0.4";
+      setTimeout(function() {
+        bu.div.style.opacity = "1";
+      }, 500);
       bu.audio.play();
       // TODO add pause before next
       console.log(bu); // testing only, remove
@@ -107,9 +107,7 @@
       // update counter to current pattern length
       counter.innerHTML = pattern.length;
       // play
-      for (var i = 0; i < pattern.length; i++) {
-        play(pattern[i]);
-      }
+      pattern.forEach(play);
       userTurn = true;
 
     }
