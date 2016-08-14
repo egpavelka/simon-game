@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
+	<meta charset="utf-8" />
 	<title>Simon Game</title>
-  <link href="https://fonts.googleapis.com/css?family=Squada+One|Unica+One" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Squada+One|Unica+One" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
 <body>
-<div class="gameboard">
-  <div class="circle container">
-    <div class="half-circle">
-      <div class="button" id="d1" onclick="userAction(d1)"></div>
-      <div class="button" id="d2" onclick="userAction(d2)"></div>
-    </div>
-    <div class="half-circle">
-      <div class="button" id="d3" onclick="userAction(d3)"></div>
-      <div class="button" id="d4" onclick="userAction(d4)"></div>
-    </div>
-  </div>
+	<div class="gameboard">
+		<div id="circle" class="container">
+			<div class="half-circle">
+				<div class="button" id="d1" onclick="userAction(0)"></div>
+				<div class="button" id="d2" onclick="userAction(1)"></div>
+			</div>
+			<div class="half-circle">
+				<div class="button" id="d3" onclick="userAction(2)"></div>
+				<div class="button" id="d4" onclick="userAction(3)"></div>
+			</div>
+		</div>
 
-  <div class="controls container">
-    <div>
-      <span id="game-title">SIMON</span><span style="font-size: 2rem;">&copy;</span></div>
-    <div class="inline">
+		<div class="controls container">
+			<div>
+				<span id="game-title">SIMON</span><span style="font-size: 2rem;">&copy;</span></div>
+			<div class="inline">
 
-      <div>
-        <div id="counter">
-          0
-        </div>
-        Count
-      </div>
-      <div>
-        <div class="control-button" id="start-button"></div>
-        <span id="start-stop">Start</span></div>
-      <div>
-        <div id="strict-indicator"></div>
-        <div class="control-button" id="strict-button"></div>
-        Strict</div>
-    </div>
-  </div>
-</div>
-<script src="scripts.js"></script>
+				<div>
+					<div id="counter">
+						0
+					</div>
+					Count
+				</div>
+				<div>
+					<div class="control-button" id="start-button"></div>
+					<span id="start-stop">Start</span></div>
+				<div>
+					<div id="strict-indicator"></div>
+					<div class="control-button" id="strict-button"></div>
+					Strict</div>
+			</div>
+		</div>
+	</div>
+	<script src="scripts.js"></script>
 </body>
+
 </html>
