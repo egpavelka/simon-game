@@ -1,7 +1,10 @@
-# DESCRIPTION OF PROJECT FROM FCC:
+When finished, project will be live at:
+http://egpavelka.com/simon-game
 ____________________________________________
 
-# Build a Simon Game
+# DESCRIPTION OF PROJECT FROM FCC
+
+## Build a Simon Game
 
 ### Objective: Build a CodePen.io app that is functionally similar to this: https://codepen.io/FreeCodeCamp/full/obYBjE.
 
@@ -26,7 +29,7 @@ ____________________________________________
 - User Story: I can win the game by getting a series of 20 steps correct. I am notified of my victory, then the game starts over.
 ____________________________________________
 
-# CHANGELOG
+## CHANGELOG
 ____________________________________________
 
 ## [Unreleased] 2016.08.13
