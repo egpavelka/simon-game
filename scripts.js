@@ -1,10 +1,14 @@
 
 
     /////// INITIALIZE
-    var // TODO organize this list
+    var
+      // game is off on page load
+      //// FIXME why can't this be in the initializerloadGame()?
       start = false,
+      // sound for screw ups
       errorSound = new Audio('err.mp3'),
 
+      // button variables with corresponding elements and audio
       d1 = {
         div: document.getElementById("d1"),
         audio: new Audio('d1.mp3')
@@ -20,9 +24,10 @@
       d4 = {
         div: document.getElementById("d4"),
         audio: new Audio('d4.mp3')
-      };
-    var list = [d1, d2, d3, d4];
+      },
+      list = [d1, d2, d3, d4];
 
+    // game reset
     function loadGame() {
       pattern = [];
       turn = 0;
@@ -30,19 +35,20 @@
       userTurn = false;
       document.getElementById("counter").innerHTML = "0";
     }
-
+    // initial game load FIXME window.onload....?
     loadGame();
 
     /////// OPTIONS AND EVENTS
-
-    function play(bu) { // TODO get the sound
+    // animation and audio for button press
+    function play(bu) { //
       setTimeout(function background() {
         bu.div.style.opacity = "0.4";
-      }, 1000);
+      }, 1000); // FIXME why is this not changing back?
       bu.audio.play();
-      console.log(bu);
+      // TODO add pause before next
+      console.log(bu); // testing only, remove
     }
-
+    // reset turn count, prevent user from pushing buttons out of turn
     function endUserTurn() {
       turn = 0;
       userTurn = false;
@@ -50,13 +56,15 @@
 
     function error() {
       errorSound.play();
+      // TODO ya dun goofed alert
       if (strict) {
-        // game over message
         loadGame();
+        // TODO error alert: play again or quit
       } else {
         endUserTurn();
         pattern.forEach(play);
         userTurn = true;
+        // TODO error alert: continue or quit
       }
     }
 
@@ -92,11 +100,11 @@
 
   ///////// GAME PLAY
 
-    function makePattern() {
+    function makePattern() { // TODO rename this to computerAction
       // add key to pattern
       pattern.push(list[Math.floor(Math.random() * 4)]);
+      console.log(pattern); // testing only, remove
       // update counter to current pattern length
-      console.log(pattern);
       counter.innerHTML = pattern.length;
       // play
       for (var i = 0; i < pattern.length; i++) {
@@ -110,7 +118,7 @@
       if (userTurn) {
         if (key === pattern[turn]) {
           play(key);
-          console.log('done');
+          console.log('done'); // testing only, remove
           if (turn === (pattern.length - 1)) {
             endUserTurn();
             makePattern();
