@@ -41,9 +41,11 @@ function play(bu) {
     var duration = bu.audio.duration * 1000;
     bu.audio.play();
     bu.div.style.opacity = "1";
+    // gameboard highlighted for duration of sound
+    shadowChange("rgba(155, 155, 100, 0.1)", duration);
     // div has highlighted opacity for duration of sound
     setTimeout(function() {
-        bu.div.style.opacity = ".7";
+        bu.div.style.opacity = ".6";
     }, duration);
 }
 
@@ -55,6 +57,7 @@ function endUserTurn() {
 
 function error() {
     // TODO shadowChange(redglow)
+    shadowChange("rgba(255, 100, 100, 0.2)", 400);
     errorSound.play();
     // TODO ya dun goofed alert
     if (strict) {
@@ -67,15 +70,11 @@ function error() {
     }
 }
 // flash background shadow
-function shadowChange(color) {
-    /* TODO add to: (white glow) on correct button
-                    (green glow) on win
-                    (red glow) on error
-    */
-    document.getElementById("circle").style["boxShadow"] = "0px 0px 15px 20px " + color;
+function shadowChange(color, time) {
+    document.getElementById("circle").style["boxShadow"] = "0px 0px 145px 5px " + color;
     setTimeout(function() {
-        document.getElementById("circle").style["boxShadow"] = "0px 0px 10px 15px rgba(0, 0, 0, 0.5)";
-    }, 500);
+        document.getElementById("circle").style["boxShadow"] = "0px 0px 120px 5px rgba(0, 0, 0, 0.7)";
+    }, time);
 }
 // STRICT MODE
 document.getElementById("strict-button").onclick = function() {
@@ -91,6 +90,7 @@ document.getElementById("strict-button").onclick = function() {
 
 
 //start game
+//TODO switch to inline onclick functions
 document.getElementById("start-button").onclick = function() {
     loadGame();
     if (start === false) {
@@ -118,7 +118,7 @@ function playPattern() {
             if (i < pattern.length) {
                 playEach();
             }
-        }, 400);
+        }, 750);
     }
     playEach();
 
@@ -149,7 +149,7 @@ function userAction(key) {
                 // if user completed full 20-round game sequence
                 if (pattern.length === 20) {
                     // TODO add win game sequence
-                    console.log("yay"); // testing only, remove
+                    shadowChange("rgba(100, 255, 80, 0.2)", 1000);
                 } else {
                     setTimeout(function() {
                         computerAction();
@@ -158,10 +158,23 @@ function userAction(key) {
             }
             // if not end of pattern
             else {
-              turn++;
+                turn++;
             }
         } else {
             error();
         }
     }
+}
+///// ALERTS
+// TODO
+var winAlert = document.getElementById('win-alert'),
+    errorAlertNormal = document.getElementById('error-alert-normal'),
+    errorAlertStrict = document.getElementById('error-alert-strict');
+
+function displayAlert() {
+
+}
+
+function dismissAlert() {
+
 }

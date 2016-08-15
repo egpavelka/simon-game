@@ -32,6 +32,14 @@ ____________________________________________
 ## CHANGELOG
 ____________________________________________
 
+## [Unreleased] 2016.08.15
+### COMPLETED
+- Added glow animation to gameboard for button press, error, win events.
+
+### BUG FIXES
+- Fixed problem with repeated button playback.
+
+
 ## [Unreleased] 2016.08.14
 ### COMPLETED
 - Gameplay is functional, allowing user to complete a 20-step sequence in order to win.
