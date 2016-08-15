@@ -37,17 +37,16 @@ loadGame();
 
 /////// OPTIONS AND EVENTS
 // animation and audio for button press
-function play(bu) { //
+function play(bu) {
+    var duration = bu.audio.duration * 1000;
+    bu.audio.play();
     bu.div.style.opacity = "1";
+    // div has highlighted opacity for duration of sound
     setTimeout(function() {
         bu.div.style.opacity = ".7";
-    }, 500);
-    bu.audio.play();
-    // TODO add pause before next
-    setTimeout(function() {
-        console.log("wait");
-    }, 1000); // testing only, remove
+    }, duration);
 }
+
 // reset turn count, prevent user from pushing buttons out of turn
 function endUserTurn() {
     turn = 0;
@@ -63,9 +62,8 @@ function error() {
         // TODO error alert: play again or quit
     } else {
         endUserTurn();
-        pattern.forEach(play);
-        userTurn = true;
-        // TODO error alert: continue or quit
+        setTimeout(playPattern(), 1000);
+        // TODO error alert: continue or quit--remove timeout
     }
 }
 // flash background shadow
@@ -100,7 +98,7 @@ document.getElementById("start-button").onclick = function() {
         document.getElementById("start-stop").innerHTML = "Stop";
         document.getElementById("start-button").style.backgroundColor = "red";
         // computer goes first
-        makePattern();
+        computerAction();
     } else {
         start = false;
         document.getElementById("start-stop").innerHTML = "Start";
@@ -110,35 +108,58 @@ document.getElementById("start-button").onclick = function() {
 };
 
 ///////// GAME PLAY
+function playPattern() {
+    var i = 0;
 
-function makePattern() { // TODO rename this to computerAction
+    function playEach() {
+        setTimeout(function() {
+            play(pattern[i]);
+            i++;
+            if (i < pattern.length) {
+                playEach();
+            }
+        }, 400);
+    }
+    playEach();
+
+    // allow user action after full playback
+    setTimeout(function() {
+        userTurn = true;
+    }, 400);
+
+}
+
+function computerAction() {
     // add key to pattern
     pattern.push(list[Math.floor(Math.random() * 4)]);
-    console.log(pattern); // testing only, remove
     // update counter to current pattern length
     counter.innerHTML = pattern.length;
     // play
-    pattern.forEach(play);
-    userTurn = true;
-
+    playPattern();
 }
 
 function userAction(key) {
     if (userTurn) {
+        console.log(list[key].button + " - user; " + pattern[turn].button + " - computer; " + turn); // testing only, remove
         if (list[key] === pattern[turn]) {
             play(list[key]);
-            console.log('done'); // testing only, remove
+            // if user completed full sequence correctly
             if (turn === (pattern.length - 1)) {
                 endUserTurn();
+                // if user completed full 20-round game sequence
                 if (pattern.length === 20) {
                     // TODO add win game sequence
+                    console.log("yay"); // testing only, remove
                 } else {
-                    makePattern();
+                    setTimeout(function() {
+                        computerAction();
+                    }, 1000);
                 }
-                // TODO shadowChange(greenglow)
             }
-            // TODO shadowChange(whiteglow)
-            turn++;
+            // if not end of pattern
+            else {
+              turn++;
+            }
         } else {
             error();
         }
