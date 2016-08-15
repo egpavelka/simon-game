@@ -37,10 +37,12 @@ ____________________________________________
 - Gameplay is functional, allowing user to complete a 20-step sequence in order to win.
 - Fixed issues with timing of pattern playback/overlapping.
 - FCC User Stories 1-6 met in full.
+
 ### IN PROCESS
 - Make sure strict mode toggle is fully functional.
 - Create attractive alerts for error, game over, you win dialogues.
 - Add glow animation to gameboard for button press, error, win events.
+
 ### BUGS
 - When pattern has repeated button once or more, playback becomes blurred (not clear whether it's D1, D1, D1, D2 or D1, D2).
 
@@ -49,6 +51,7 @@ ____________________________________________
 ### COMPLETED
 - Base design is done.
 - Game initialization process works, pieces are in place.
+
 ### IN PROCESS
 - Gloss up animations and fix timing issues with button highlighting and audio playback.
 - Create actual working gameplay or whatever I guess.
