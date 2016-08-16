@@ -117,7 +117,7 @@ function userAction(key) {
             if (turn === (pattern.length - 1)) {
                 endUserTurn();
                 // if user completed full 20-round game sequence
-                if (pattern.length === 4) {
+                if (pattern.length === 20) {
                   winSound.play();
                     shadowChange("rgba(100, 255, 80, 0.2)", 1000);
                     displayAlert(winAlert);
