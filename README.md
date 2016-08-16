@@ -31,6 +31,20 @@ ____________________________________________
 
 ## CHANGELOG
 ____________________________________________
+## [Release 1.1] 2016.08.16
+### CHANGES
+- Added sound effect for winning.
+
+## [Release 1.0] 2016.08.16
+### COMPLETED
+- Game totally works.
+- Alert windows added for errors and winning. (User Story 8 completed.)
+
+### CHANGES
+- Rearranged functions in JS file for better categorization.
+
+### BUG FIXES
+- Strict mode can only be toggled while game is off. (User Story 7 completed.)
 
 ## [Unreleased] 2016.08.15
 ### COMPLETED
@@ -40,7 +54,7 @@ ____________________________________________
 - Fixed problem with repeated button playback.
 
 
-## [Unreleased] 2016.08.14
+## [Unreleased 0.2] 2016.08.14
 ### COMPLETED
 - Gameplay is functional, allowing user to complete a 20-step sequence in order to win.
 - Fixed issues with timing of pattern playback/overlapping.
@@ -55,7 +69,7 @@ ____________________________________________
 - When pattern has repeated button once or more, playback becomes blurred (not clear whether it's D1, D1, D1, D2 or D1, D2).
 
 
-## [Unreleased] 2016.08.13
+## [Unreleased 0.1] 2016.08.13
 ### COMPLETED
 - Base design is done.
 - Game initialization process works, pieces are in place.

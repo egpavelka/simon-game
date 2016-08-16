@@ -33,11 +33,11 @@
 					Count
 				</div>
 				<div>
-					<div class="control-button" id="start-button"></div>
+					<div class="control-button" id="start-button" onclick="startGame()"></div>
 					<span id="start-stop">Start</span></div>
 				<div>
 					<div id="strict-indicator"></div>
-					<div class="control-button" id="strict-button"></div>
+					<div class="control-button" id="strict-button" onclick="toggleStrict()"></div>
 					Strict</div>
 			</div>
 		</div>
@@ -48,7 +48,7 @@
 			<p>
 				Try again?
 			</p>
-			<span class="l-button">Quit</span><span class="r-button">Continue</span>
+			<span class="l-button" onclick="dismissAlert(errorAlertNormal, 'quit')">Quit</span><span class="r-button" onclick="dismissAlert(errorAlertNormal, 'continue')">Continue</span>
 		</div>
 	</div>
 	<div id="error-alert-strict" class="alert-bg">
@@ -57,19 +57,19 @@
 			<p>
 				Play again?
 			</p>
-			<span class="l-button">Quit</span><span class="r-button">Start Over</span>
+			<span class="l-button" onclick="dismissAlert(errorAlertStrict, 'quit')">Quit</span><span class="r-button" onclick="dismissAlert(errorAlertStrict, 'restart')">Play Again</span>
 		</div>
 	</div>
 	<div id="win-alert" class="alert-bg">
 		<div class="alert-box">
 			<span class="title">You won!</span>
 			<p>
-				Great memory you got there.
+				Great work.
 			</p>
-			<span class="l-button">Quit</span><span class="r-button">Play Again</span>
+			<span class="l-button" onclick="dismissAlert(winAlert, 'quit')">Quit</span><span class="r-button" onclick="dismissAlert(winAlert, 'restart')">Play Again</span>
 		</div>
 	</div>
-	<script src="scripts.js"></script>
+	<script src="scripts.js "></script>
 </body>
 
 </html>
