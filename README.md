@@ -1,4 +1,9 @@
-When finished, project will be live at:
+This is the last project in FreeCodeCamp's Front End Development curriculum.
+
+Project info: https://www.freecodecamp.com/challenges/Build%20a%20Simon%20Game
+Completed project on codepen.io:
+http://codepen.io/elwyn/pen/NrdxYq
+Up and running:
 http://egpavelka.com/simon-game
 ____________________________________________
 
