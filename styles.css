@@ -186,7 +186,7 @@ body {
     border: 3px solid #666;
     border-radius: 10px;
 }
-.alert-box span:hover {
+.alert-box span:not(:first-child):hover {
     cursor: pointer;
     border: 3px solid #999;
 }
